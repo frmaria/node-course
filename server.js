@@ -43,6 +43,12 @@ app.get('/todos/:id', function(req,res){
 // matchedTodo ? res.json(matchedTodo) : res.status(404).send();
 });
 
+app.delete('/todos/:id', function(req,res){
+  var todoId = parseInt(req.params.id, 10);
+  var matchedTodo = _.findWhere(todos, {id: todoId});
+  matchedTodo ? (todos = _.without(todos, matchedTodo), res.json(matchedTodo) ) : res.status(404).json({"error": "no todo found"});
+});
+
 app.post('/todos', function(req, res) {
   var body = _.pick(req.body, 'description', 'completed');
   // trim removes spaces from strings (beg and end only), this way if user types only spaces the conditional will work
