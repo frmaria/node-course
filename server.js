@@ -49,7 +49,7 @@ app.get('/todos', function(req, res) {
       }, function (){
         res.status(500).send();
       });
-      
+
       });
 
     app.get('/todos/:id', function(req, res) {
@@ -64,18 +64,7 @@ app.get('/todos', function(req, res) {
         res.status(500).send();
       });
 
-      // var matchedTodo = _.findWhere(todos, {
-      //   id: todoId
-      // });
-      //   var matchedTodo;
-      //
-      //   todos.forEach(function(i){
-      //     if(todoId === i.id) {
-      //       matchedTodo = i;
-      //     }
-      //   });
-      // matchedTodo ? res.json(matchedTodo) : res.status(404).send();
-    });
+  });
 
     app.put('/todos/:id', function(req, res) {
       var todoId = parseInt(req.params.id, 10);
