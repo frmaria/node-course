@@ -58,6 +58,7 @@ app.get('/todos', function(req, res) {
       db.todo.findById(todoId).then(function(todo) {
         if (!!todo) {
           res.json(todo.toJSON());
+        } else {
           res.status(404).send();
         }
       }, function(e) {
